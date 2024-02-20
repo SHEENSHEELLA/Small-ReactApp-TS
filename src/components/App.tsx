@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import TodoList from './TodoList'
 
 import { ITodo } from '../types/data'
+import { Box, Button, Container, TextField } from '@mui/material'
 
 const App: React.FC = () => {
   const [value, setValue] = useState('')
@@ -49,18 +50,35 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <div>
-      <div>
-        <input
+    <Container
+      maxWidth="md"
+      sx={{
+        margin: '40px',
+        // padding: '30px',
+        // border: '1px solid black',
+      }}
+    >
+      <Box
+        sx={{
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'flex-start',
+        }}
+      >
+        <TextField
           value={value}
+          size="small"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           ref={inputRef}
+          sx={{ flexGrow: 1 / 3, mr: 2 }}
         />
-        <button onClick={addTodo}>Add</button>
-      </div>
+        <Button variant="contained" onClick={addTodo}>
+          Add
+        </Button>
+      </Box>
       <TodoList items={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
-    </div>
+    </Container>
   )
 }
 

@@ -1,3 +1,5 @@
+import { Box, Checkbox, FormGroup, IconButton, Typography } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
 import { ITodo } from '../types/data'
 
 interface ITodoItem extends ITodo {
@@ -8,25 +10,36 @@ interface ITodoItem extends ITodo {
 const TodoItem: React.FC<ITodoItem> = (props) => {
   const { id, title, complete, toggleTodo, removeTodo } = props
   return (
-    <div>
-      <input
-        type="checkbox"
+    <Box sx={{ height: '100%', display: 'flex', justifyContent: 'flex-start' }}>
+      <Checkbox
+        // type="checkbox"
         checked={complete}
         onChange={() => toggleTodo(id)}
       />
-      <span style={{ display: 'inline-block', margin: '0 10px' }}>{title}</span>
-      <button
-        onClick={() => removeTodo(id)}
-        style={{
+      <Typography
+        variant="h6"
+        component="span"
+        sx={{
+          display: 'inline-block',
+          margin: 'auto 10px',
+          alignItems: 'center',
+          color: '#1976d2',
+        }}
+      >
+        {title}
+      </Typography>
+      <IconButton color="error" onClick={() => removeTodo(id)}>
+        {/* style={{
           background: 'transparent',
           border: 'none',
           outline: 'none',
           color: 'red',
         }}
-      >
-        x
-      </button>
-    </div>
+      > */}
+        {/* x */}
+        <CloseIcon />
+      </IconButton>
+    </Box>
   )
 }
 
