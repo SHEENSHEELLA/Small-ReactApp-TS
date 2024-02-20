@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Small-ReactApp-TS
+Small React application using TypeScript and MUI. 
+
+На примере простого таск-трекера практикуемся типизации функциональных React-компонентов, хуков и кастомных методов для обработки событий. Небольшую стилизацию выполнили с помощью Material UI.
+ 
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
